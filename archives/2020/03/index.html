@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>lavender</title>
+  <title>Archives: 2020/3 | lavender</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="record">
 <meta property="og:type" content="website">
 <meta property="og:title" content="lavender">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/archives/2020/03/index.html">
 <meta property="og:site_name" content="lavender">
 <meta property="og:description" content="record">
 <meta property="og:locale" content="en_US">
@@ -157,237 +157,47 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-svm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/30/svm/">svm</a>
-    </h1>
-  
-
-        
-        <a href="/2020/03/30/svm/" class="archive-article-date">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/03/30/svm/" class="archive-article-date">
   	<time datetime="2020-03-30T08:45:41.707Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
 </a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、SVM原理"><a href="#一、SVM原理" class="headerlink" title="一、SVM原理"></a>一、SVM原理</h2><h3 id="1、SVM简介"><a href="#1、SVM简介" class="headerlink" title="1、SVM简介"></a>1、SVM简介</h3><p>​        支持向量机（SVM）是一种二分类模型。分类学习最基本的想法就是基于训练集在样本空间中找到一个划分超平面，将不同类别的样本分开。</p>
-<h3 id="2、SVM算法原理"><a href="#2、SVM算法原理" class="headerlink" title="2、SVM算法原理"></a>2、SVM算法原理</h3><h4 id="2-1、最优化问题（硬间隔）"><a href="#2-1、最优化问题（硬间隔）" class="headerlink" title="2.1、最优化问题（硬间隔）"></a>2.1、最优化问题（硬间隔）</h4><p>​        SVM学习的基本想法是<strong>求解能够正确划分训练数据集并且几何间隔最大的分离超平面</strong>（即SVM 想要找到各类样本点到超平面的距离最远，也就是找到最大间隔超平面）。任意超平面可以用下面这个线性方程来描述：</p>
-<p><img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330201443960.png" alt="image-20200330201443960"></p>
-<p>​        <img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330200655181.png" alt="image-20200330200655181"></p>
-<p>​        根据支持向量的定义我们知道，支持向量到超平面的距离为 d，其他点到超平面的距离大于 d。如图所示：</p>
-<img src="https://pic4.zhimg.com/80/v2-1510522df255bd2987bf9ce8541f45af_720w.jpg" alt="img" style="zoom:67%;" />
-
-<p>​        于是我们有这样的一个公式：</p>
-<p>​     <img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330201712274.png" alt="image-20200330201712274">                  </p>
-<p><img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330202902051.png" alt="image-20200330202902051"></p>
-<p>至此我们就可以得到最大间隔超平面的上下两个超平面：</p>
-<img src="https://img-blog.csdn.net/20180823150959524?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2IyODU3OTUyOTg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="è¿éåå¾çæè¿°" style="zoom:67%;" />
-
-<p><img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330203344120.png" alt="">)<img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330203421590.png" alt="image-20200330203421590"></p>
-<h4 id="2-2、对偶问题（强对偶和弱对偶）"><a href="#2-2、对偶问题（强对偶和弱对偶）" class="headerlink" title="2.2、对偶问题（强对偶和弱对偶）"></a>2.2、对偶问题（强对偶和弱对偶）</h4><p>​      引入拉格朗日乘数法，将最优化问题中的不等式约束转换为等式约束：<img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330210503594.png" alt="image-20200330210503594"></p>
-<p><img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330205728436.png" alt="image-20200330205728436">)<img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330210455469.png" alt="image-20200330210455469">)<img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330210310423.png" alt="image-20200330210310423"></p>
-<p>​    <img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330210628843.png" alt="image-20200330210628843">)<img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330210759872.png" alt="image-20200330210759872"></p>
-<p>​    由此可以求出w和b，代入原方程为：<img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330211024583.png" alt="image-20200330211024583">)<img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330211114092.png" alt="image-20200330211114092"></p>
-<h4 id="2-3、软间隔"><a href="#2-3、软间隔" class="headerlink" title="2.3、软间隔"></a>2.3、软间隔</h4><p>​        在实际应用中，完全线性可分的样本是很少的，如果遇到了不能够完全线性可分的样本，就有了软间隔，相比于硬间隔的苛刻条件，我们允许个别样本点出现在间隔带里面。<img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330212830182.png" alt="image-20200330212830182"></p>
-<img src="https://pic1.zhimg.com/80/v2-8e3d96fd9f9cad298628c7e2c4c8a8b8_720w.jpg" alt="img" style="zoom:67%;" />
-
-<p>​        此时优化问题为：</p>
-<p><img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330213803210.png" alt="image-20200330213803210"></p>
-<h4 id="2-4、核函数"><a href="#2-4、核函数" class="headerlink" title="2.4、核函数"></a>2.4、核函数</h4><p>​        硬间隔和软间隔都是在说样本的完全线性可分或者大部分样本点的线性可分，但我们可能会碰到的一种情况是样本点不是线性可分的。这种情况的解决方法就是：将二维线性不可分样本映射到高维空间中，让样本点在高维空间线性可分。对于在有限维度向量空间中线性不可分的样本，我们将其映射到更高维度的向量空间里，再通过间隔最大化的方式，学习得到支持向量机，就是非线性 SVM。<img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330215859388.png" alt="image-20200330215859388">)<img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330220148242.png" alt="image-20200330220148242"></p>
-<h3 id="3、算法步骤"><a href="#3、算法步骤" class="headerlink" title="3、算法步骤"></a>3、算法步骤</h3><h4 id="3-1、线性支持向量机学习算法"><a href="#3-1、线性支持向量机学习算法" class="headerlink" title="3.1、线性支持向量机学习算法"></a>3.1、线性支持向量机学习算法</h4><p>​        <img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330223111575.png" alt="image-20200330223111575"></p>
-<p>​    <img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330223143426.png" alt="image-20200330223143426"></p>
-<h4 id="3-2、非线性支持向量机学习算法"><a href="#3-2、非线性支持向量机学习算法" class="headerlink" title="3.2、非线性支持向量机学习算法"></a>3.2、非线性支持向量机学习算法</h4><p>​        <img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330223220168.png" alt="image-20200330223220168">)<img src="C:%5CUsers%5Cjuan%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200330223250996.png" alt="image-20200330223250996"></p>
-<p>来源：<a href="https://zhuanlan.zhihu.com/p/77750026?utm_source=wechat_session" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/77750026?utm_source=wechat_session</a></p>
-<p>​            <a href="https://zhuanlan.zhihu.com/p/31886934" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/31886934</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/03/30/svm/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-nodemon" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/14/nodemon/">nodemon</a>
+      <a class="archive-article-title" href="/2020/03/30/svm/">svm</a>
     </h1>
   
 
-        
-        <a href="/2020/02/14/nodemon/" class="archive-article-date">
-  	<time datetime="2020-02-14T04:18:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>nodemon运行 提示错误：无法加载文件 C:\Users\gxf\AppData\Roaming\npm\nodemon.ps1，因为在此系统上禁止运行脚本。</p>
-<p>解决办法：</p>
-<p>1.管理员身份打开powerShell</p>
-<p>2.输入set-ExecutionPolicy RemoteSigned </p>
-<p><img src="https://img2018.cnblogs.com/blog/992473/201909/992473-20190912143440135-985998266.png" alt="img"></p>
-<p>.3 选择Y 或者A ，就好了</p>
-<p>参考：<a href="https://blog.csdn.net/wqnmlgbsz/article/details/100654258" target="_blank" rel="noopener">https://blog.csdn.net/wqnmlgbsz/article/details/100654258</a></p>
+        <div class="article-info info-on-right">
+          
+          
 
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/14/nodemon/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/13/hexo/">hexo</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/13/hexo/" class="archive-article-date">
-  	<time datetime="2020-02-13T05:32:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="hexo-yilia主题鼠标点击爱心效果"><a href="#hexo-yilia主题鼠标点击爱心效果" class="headerlink" title="hexo yilia主题鼠标点击爱心效果"></a>hexo yilia主题鼠标点击爱心效果</h4><p>在themes\yilia\source文件夹下，新建click.js文件，代码：</p>
-<p>! function(e, t, a) {<br>    function n() {<br>        c(“.heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: ‘’;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;}.heart:after{top: -5px;}.heart:before{left: -5px;}”), o(), r()<br>    }</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">r</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> e = <span class="number">0</span>; e &lt; d.length; e++)</span><br><span class="line">        d[e].alpha &lt;= <span class="number">0</span> ? (t.body.removeChild(d[e].el), d.splice(e, <span class="number">1</span>)) : (d[e].y--, d[e].scale += <span class="number">.004</span>, d[e].alpha -= <span class="number">.013</span>, d[e].el.style.cssText = <span class="string">"left:"</span> + d[e].x + <span class="string">"px;top:"</span> + d[e].y + <span class="string">"px;opacity:"</span> + d[e].alpha + <span class="string">";transform:scale("</span> + d[e].scale + <span class="string">","</span> + d[e].scale + <span class="string">") rotate(45deg);background:"</span> + d[e].color + <span class="string">";z-index:99999"</span>);</span><br><span class="line">    requestAnimationFrame(r)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">o</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> t = <span class="string">"function"</span> == <span class="keyword">typeof</span> e.onclick &amp;&amp; e.onclick;</span><br><span class="line">    e.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        t &amp;&amp; t(), i(e)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">i</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = t.createElement(<span class="string">"div"</span>);</span><br><span class="line">    a.className = <span class="string">"heart"</span>, d.push(&#123;</span><br><span class="line">        el: a,</span><br><span class="line">        x: e.clientX - <span class="number">5</span>,</span><br><span class="line">        y: e.clientY - <span class="number">5</span>,</span><br><span class="line">        scale: <span class="number">1</span>,</span><br><span class="line">        alpha: <span class="number">1</span>,</span><br><span class="line">        color: s()</span><br><span class="line">    &#125;), t.body.appendChild(a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">c</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = t.createElement(<span class="string">"style"</span>);</span><br><span class="line">    a.type = <span class="string">"text/css"</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        a.appendChild(t.createTextNode(e))</span><br><span class="line">    &#125; <span class="keyword">catch</span> (t) &#123;</span><br><span class="line">        a.styleSheet.cssText = e</span><br><span class="line">    &#125;</span><br><span class="line">    t.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>].appendChild(a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">s</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"rgb("</span> + ~~(<span class="number">255</span> * <span class="built_in">Math</span>.random()) + <span class="string">","</span> + ~~(<span class="number">255</span> * <span class="built_in">Math</span>.random()) + <span class="string">","</span> + ~~(<span class="number">255</span> * <span class="built_in">Math</span>.random()) + <span class="string">")"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> d = [];</span><br><span class="line">e.requestAnimationFrame = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame || e.oRequestAnimationFrame || e.msRequestAnimationFrame || <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">        setTimeout(e, <span class="number">1e3</span> / <span class="number">60</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;(), n()</span><br></pre></td></tr></table></figure>
-<p>}(window, document);<br>然后再themes\yilia\layout_partial文件夹下的after-footer.ejs中加入</p>
-<p></script></p>
-<script type="text/javascript" src="<%=config.root%>./click.js">
-</script>
-<p>hexo g,hexo d重新部署后就可看到效果<br>原文链接：<a href="https://blog.csdn.net/qq_43827595/article/details/100177617" target="_blank" rel="noopener">https://blog.csdn.net/qq_43827595/article/details/100177617</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/02/13/hexo/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -409,9 +219,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
-		isArchive: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
