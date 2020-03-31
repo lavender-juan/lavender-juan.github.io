@@ -177,32 +177,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、SVM原理"><a href="#一、SVM原理" class="headerlink" title="一、SVM原理"></a>一、SVM原理</h2><h3 id="1、SVM简介"><a href="#1、SVM简介" class="headerlink" title="1、SVM简介"></a>1、SVM简介</h3><p>​        支持向量机（SVM）是一种二分类模型。分类学习最基本的想法就是基于训练集在样本空间中找到一个划分超平面，将不同类别的样本分开。</p>
+        <p>一、SVM原理</p>
+<h3 id="1、SVM简介"><a href="#1、SVM简介" class="headerlink" title="1、SVM简介"></a>1、SVM简介</h3><p>​        支持向量机（SVM）是一种二分类模型。分类学习最基本的想法就是基于训练集在样本空间中找到一个划分超平面，将不同类别的样本分开。</p>
 <h3 id="2、SVM算法原理"><a href="#2、SVM算法原理" class="headerlink" title="2、SVM算法原理"></a>2、SVM算法原理</h3><h4 id="2-1、最优化问题（硬间隔）"><a href="#2-1、最优化问题（硬间隔）" class="headerlink" title="2.1、最优化问题（硬间隔）"></a>2.1、最优化问题（硬间隔）</h4><p>​        SVM学习的基本想法是<strong>求解能够正确划分训练数据集并且几何间隔最大的分离超平面</strong>（即SVM 想要找到各类样本点到超平面的距离最远，也就是找到最大间隔超平面）。任意超平面可以用下面这个线性方程来描述：</p>
-<p><img src="../../source/images/image-20200330201443960.png" alt="image-20200330201443960"></p>
-<p>​        <img src="../../source/images/image-20200330200655181.png" alt="image-20200330200655181"></p>
+<p><img src="../../images/image-20200330201443960.png" alt="image-20200330201443960"></p>
+<p>​        <img src="../../images/image-20200330200655181.png" alt="image-20200330200655181"></p>
 <p>​        根据支持向量的定义我们知道，支持向量到超平面的距离为 d，其他点到超平面的距离大于 d。如图所示：</p>
 <img src="https://pic4.zhimg.com/80/v2-1510522df255bd2987bf9ce8541f45af_720w.jpg" alt="img" style="zoom:67%;" />
 
 <p>​        于是我们有这样的一个公式：</p>
-<p>​     <img src="../../source/images/image-20200330201712274.png" alt="image-20200330201712274">                  </p>
-<p><img src="../../source/images/image-20200330202902051.png" alt="image-20200330202902051"></p>
+<p>​     <img src="../images/image-20200330201712274.png" alt="image-20200330201712274">                  </p>
+<p><img src="../images/image-20200330202902051.png" alt="image-20200330202902051"></p>
 <p>至此我们就可以得到最大间隔超平面的上下两个超平面：</p>
-<p><img src="../../source/images/image-20200331100440005.png" alt="image-20200331100440005"></p>
-<p><img src="../../source/images/image-20200330203344120.png" alt="">)<img src="../../source/images/image-20200330203421590.png" alt="image-20200330203421590"></p>
-<h4 id="2-2、对偶问题（强对偶和弱对偶）"><a href="#2-2、对偶问题（强对偶和弱对偶）" class="headerlink" title="2.2、对偶问题（强对偶和弱对偶）"></a>2.2、对偶问题（强对偶和弱对偶）</h4><p>​      引入拉格朗日乘数法，将最优化问题中的不等式约束转换为等式约束：<img src="../../source/images/image-20200330210503594.png" alt="image-20200330210503594"></p>
-<p><img src="../../source/images/image-20200330205728436.png" alt="image-20200330205728436">)<img src="../../source/images/image-20200330210455469.png" alt="image-20200330210455469">)<img src="../../source/images/image-20200330210310423.png" alt="image-20200330210310423"></p>
-<p>​    <img src="../../source/images/image-20200330210628843.png" alt="image-20200330210628843">)<img src="../../source/images/image-20200330210759872.png" alt="image-20200330210759872"></p>
-<p>​    由此可以求出w和b，代入原方程为：<img src="../../source/images/image-20200330211024583.png" alt="image-20200330211024583">)<img src="../../source/images/image-20200330211114092.png" alt="image-20200330211114092"></p>
-<h4 id="2-3、软间隔"><a href="#2-3、软间隔" class="headerlink" title="2.3、软间隔"></a>2.3、软间隔</h4><p>​        在实际应用中，完全线性可分的样本是很少的，如果遇到了不能够完全线性可分的样本，就有了软间隔，相比于硬间隔的苛刻条件，我们允许个别样本点出现在间隔带里面。<img src="../../source/images/image-20200330212830182.png" alt="image-20200330212830182"></p>
+<p><img src="../images/image-20200331100440005.png" alt="image-20200331100440005"></p>
+<p><img src="../images/image-20200330203344120.png" alt="">)<img src="../images/image-20200330203421590.png" alt="image-20200330203421590"></p>
+<h4 id="2-2、对偶问题（强对偶和弱对偶）"><a href="#2-2、对偶问题（强对偶和弱对偶）" class="headerlink" title="2.2、对偶问题（强对偶和弱对偶）"></a>2.2、对偶问题（强对偶和弱对偶）</h4><p>​      引入拉格朗日乘数法，将最优化问题中的不等式约束转换为等式约束：<img src="../images/image-20200330210503594.png" alt="image-20200330210503594"></p>
+<p><img src="../images/image-20200330205728436.png" alt="image-20200330205728436">)<img src="../images/image-20200330210455469.png" alt="image-20200330210455469">)<img src="../images/image-20200330210310423.png" alt="image-20200330210310423"></p>
+<p>​    <img src="../images/image-20200330210628843.png" alt="image-20200330210628843">)<img src="../images/image-20200330210759872.png" alt="image-20200330210759872"></p>
+<p>​    由此可以求出w和b，代入原方程为：<img src="../images/image-20200330211024583.png" alt="image-20200330211024583">)<img src="../../source/images/image-20200330211114092.png" alt="image-20200330211114092"></p>
+<h4 id="2-3、软间隔"><a href="#2-3、软间隔" class="headerlink" title="2.3、软间隔"></a>2.3、软间隔</h4><p>​        在实际应用中，完全线性可分的样本是很少的，如果遇到了不能够完全线性可分的样本，就有了软间隔，相比于硬间隔的苛刻条件，我们允许个别样本点出现在间隔带里面。<img src="../images/image-20200330212830182.png" alt="image-20200330212830182"></p>
 <img src="https://pic1.zhimg.com/80/v2-8e3d96fd9f9cad298628c7e2c4c8a8b8_720w.jpg" alt="img" style="zoom:67%;" />
 
 <p>​        此时优化问题为：</p>
-<p><img src="../../source/images/image-20200330213803210.png" alt="image-20200330213803210"></p>
-<h4 id="2-4、核函数"><a href="#2-4、核函数" class="headerlink" title="2.4、核函数"></a>2.4、核函数</h4><p>​        硬间隔和软间隔都是在说样本的完全线性可分或者大部分样本点的线性可分，但我们可能会碰到的一种情况是样本点不是线性可分的。这种情况的解决方法就是：将二维线性不可分样本映射到高维空间中，让样本点在高维空间线性可分。对于在有限维度向量空间中线性不可分的样本，我们将其映射到更高维度的向量空间里，再通过间隔最大化的方式，学习得到支持向量机，就是非线性 SVM。<img src="../../source/images/image-20200330215859388.png" alt="image-20200330215859388">)<img src="../../source/images/image-20200330220148242.png" alt="image-20200330220148242"></p>
-<h3 id="3、算法步骤"><a href="#3、算法步骤" class="headerlink" title="3、算法步骤"></a>3、算法步骤</h3><h4 id="3-1、线性支持向量机学习算法"><a href="#3-1、线性支持向量机学习算法" class="headerlink" title="3.1、线性支持向量机学习算法"></a>3.1、线性支持向量机学习算法</h4><p>​        <img src="../../source/images/image-20200330223111575.png" alt="image-20200330223111575"></p>
-<p>​    <img src="../../source/images/image-20200330223143426.png" alt="image-20200330223143426"></p>
-<h4 id="3-2、非线性支持向量机学习算法"><a href="#3-2、非线性支持向量机学习算法" class="headerlink" title="3.2、非线性支持向量机学习算法"></a>3.2、非线性支持向量机学习算法</h4><p>​        <img src="../../source/images/image-20200330223220168.png" alt="image-20200330223220168">)<img src="../../source/images/image-20200330223250996.png" alt="image-20200330223250996"></p>
+<p><img src="../images/image-20200330213803210.png" alt="image-20200330213803210"></p>
+<h4 id="2-4、核函数"><a href="#2-4、核函数" class="headerlink" title="2.4、核函数"></a>2.4、核函数</h4><p>​        硬间隔和软间隔都是在说样本的完全线性可分或者大部分样本点的线性可分，但我们可能会碰到的一种情况是样本点不是线性可分的。这种情况的解决方法就是：将二维线性不可分样本映射到高维空间中，让样本点在高维空间线性可分。对于在有限维度向量空间中线性不可分的样本，我们将其映射到更高维度的向量空间里，再通过间隔最大化的方式，学习得到支持向量机，就是非线性 SVM。<img src="../images/image-20200330215859388.png" alt="image-20200330215859388">)<img src="../images/image-20200330220148242.png" alt="image-20200330220148242"></p>
+<h3 id="3、算法步骤"><a href="#3、算法步骤" class="headerlink" title="3、算法步骤"></a>3、算法步骤</h3><h4 id="3-1、线性支持向量机学习算法"><a href="#3-1、线性支持向量机学习算法" class="headerlink" title="3.1、线性支持向量机学习算法"></a>3.1、线性支持向量机学习算法</h4><p>​        <img src="../images/image-20200330223111575.png" alt="image-20200330223111575"></p>
+<p>​    <img src="../images/image-20200330223143426.png" alt="image-20200330223143426"></p>
+<h4 id="3-2、非线性支持向量机学习算法"><a href="#3-2、非线性支持向量机学习算法" class="headerlink" title="3.2、非线性支持向量机学习算法"></a>3.2、非线性支持向量机学习算法</h4><p>​        <img src="../images/image-20200330223220168.png" alt="image-20200330223220168">)<img src="../images/image-20200330223250996.png" alt="image-20200330223250996"></p>
 <p>来源：<a href="https://zhuanlan.zhihu.com/p/77750026?utm_source=wechat_session" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/77750026?utm_source=wechat_session</a></p>
 <p>​            <a href="https://zhuanlan.zhihu.com/p/31886934" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/31886934</a></p>
 
